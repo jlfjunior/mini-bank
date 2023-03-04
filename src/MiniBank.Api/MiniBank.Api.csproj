@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -9,6 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MiniBank.Application\MiniBank.Application.csproj" />
+    <ProjectReference Include="..\MiniBank.Infrastructure\MiniBank.Infrastructure.csproj" />
+    <ProjectReference Include="..\MiniBank.Presentation\MiniBank.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

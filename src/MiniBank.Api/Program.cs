@@ -1,6 +1,15 @@
+using MiniBank.Application.Configurations;
+using MiniBank.Infrastructure.Configurations;
+using MiniBank.Presantion.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services
+    .AddApplicationLayer()
+    .AddDataLayer()
+    .AddPresetantionLayer();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
