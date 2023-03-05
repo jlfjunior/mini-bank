@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace MiniBank.Infrastructure
 {
@@ -9,6 +10,11 @@ namespace MiniBank.Infrastructure
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
             ChangeTracker.LazyLoadingEnabled = true;
             ChangeTracker.AutoDetectChangesEnabled = true;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -19,4 +19,5 @@ namespace MiniBank.Application.Configurations
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }
     }
+
 }
