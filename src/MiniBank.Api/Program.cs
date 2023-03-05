@@ -1,6 +1,7 @@
 using MiniBank.Application.Configurations;
 using MiniBank.Infrastructure.Configurations;
 using MiniBank.Presantion.Configurations;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services
     .AddDataLayer()
     .AddPresetantionLayer();
 
+builder.Services.ConfigureSerilog(builder.Configuration);
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
