@@ -1,6 +1,5 @@
 ﻿using MiniBank.Domain.Entities;
 using MiniBank.Domain.Repositories;
-using System;
 using System.Threading.Tasks;
 
 namespace MiniBank.Infrastructure.Repositories
@@ -12,9 +11,11 @@ namespace MiniBank.Infrastructure.Repositories
             : base(context, readOnlyContext)
         { }
 
-        public Task CreateAccountAsync(Account account)
+        public async Task CreateAccountAsync(Account account)
         {
-            throw new NotImplementedException();
+            Context.Add(account);
+
+            await Context.SaveChangesAsync();
         }
     }
 }
