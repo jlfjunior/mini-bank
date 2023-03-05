@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using MiniBank.Application.Commands;
 
 namespace MiniBank.Api.Controllers
 {
@@ -12,6 +13,14 @@ namespace MiniBank.Api.Controllers
             : base(sender)
         {
             _logger = logger;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateAccountCommand command, CancellationToken cancellationToken)
+        {
+            await Sender.Send(command, cancellationToken);
+
+            return NoContent();
         }
     }
 }
