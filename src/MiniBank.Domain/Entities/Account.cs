@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MiniBank.Domain.Events;
+using MiniBank.Domain.Shareds;
+using System;
 
 namespace MiniBank.Domain.Entities
 {
-    public class Account
+    public class Account : Entity
     {
 
         public Account(int userId, string description) 
@@ -10,6 +12,7 @@ namespace MiniBank.Domain.Entities
             UserId = userId;
             Description = description;
             Balance = decimal.Zero;
+            Raise(new AccountEvent.AccountCreatedEvent{ AccountId = Id, UserId = UserId });
         }
 
         public int Id { get; }
