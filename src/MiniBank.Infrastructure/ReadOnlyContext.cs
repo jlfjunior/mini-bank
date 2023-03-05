@@ -4,7 +4,7 @@ namespace MiniBank.Infrastructure
 {
     public class ReadOnlyContext : ContextBase
     {
-        public ReadOnlyContext(DbContextOptions options) : base(options)
+        public ReadOnlyContext(DbContextOptions<ReadOnlyContext> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.LazyLoadingEnabled = false;

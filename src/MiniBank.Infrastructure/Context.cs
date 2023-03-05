@@ -5,7 +5,7 @@ namespace MiniBank.Infrastructure
 {
     public class Context : ContextBase
     {
-        public Context(DbContextOptions options) : base(options)
+        public Context(DbContextOptions<Context> options) : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.TrackAll;
             ChangeTracker.LazyLoadingEnabled = true;

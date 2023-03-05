@@ -4,14 +4,14 @@ using MiniBank.Presantion.Configurations;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var configuration = builder.Configuration;
 // Add services to the container.
 builder.Services
     .AddApplicationLayer()
-    .AddDataLayer()
+    .AddDataLayer(configuration)
     .AddPresetantionLayer();
 
-builder.Services.ConfigureSerilog(builder.Configuration);
+builder.Services.ConfigureSerilog(configuration);
 builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
